@@ -15,7 +15,7 @@ function ensureView(id) {
   const sync = () => { if (active === id) chrome(); };
   v.addEventListener("did-navigate", sync);
   v.addEventListener("did-navigate-in-page", sync);
-  v.addEventListener("dom-ready", () => { v.setZoomFactor(1.3); sync(); });
+  v.addEventListener("dom-ready", () => { v.setZoomFactor(3); sync(); });
   framesEl.appendChild(v);
   views[id] = v;
   return v;

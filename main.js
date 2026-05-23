@@ -141,7 +141,7 @@ function createWindow() {
     },
   });
   win.loadFile("index.html");
-  win.webContents.on("did-finish-load", () => win.webContents.setZoomFactor(1.3));
+  win.webContents.on("did-finish-load", () => win.webContents.setZoomFactor(3));
 }
 
 app.whenReady().then(() => { createWindow(); startEdgeServer(); });
