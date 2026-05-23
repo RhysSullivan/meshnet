@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>meshnet</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; }
+      body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #0b0b0f; color: #e7e7ee; display: flex; }
+      #side { width: 230px; flex: none; border-right: 1px solid #1c1c24; display: flex; flex-direction: column; }
+      #side h2 { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; opacity: .5; padding: 1rem 1rem .4rem; margin: 0; }
+      #list { flex: 1; overflow: auto; }
+      .chat { padding: .7rem 1rem; cursor: pointer; border-left: 2px solid transparent; display: flex; justify-content: space-between; gap: .5rem; }
+      .chat:hover { background: #14141c; }
+      .chat.active { background: #16161f; border-left-color: #6366f1; }
+      .dot { font-size: .6rem; }
+      .dot.booting { color: #f59e0b; } .dot.ready { color: #10b981; } .dot.failed { color: #ef4444; }
+      #new { margin: .6rem; padding: .6rem; background: #6366f1; border: 0; color: #fff; font: inherit; border-radius: 8px; cursor: pointer; }
+      #new:disabled { opacity: .5; cursor: default; }
+      #main { flex: 1; display: flex; flex-direction: column; min-width: 0; background: #000; }
+      #bar { flex: none; display: flex; align-items: center; gap: .4rem; padding: .5rem .6rem; background: #101016; border-bottom: 1px solid #1c1c24; }
+      #bar button { background: #1c1c24; border: 0; color: #cfcfe0; width: 30px; height: 30px; border-radius: 7px; cursor: pointer; font-size: .95rem; }
+      #bar button:disabled { opacity: .35; cursor: default; }
+      #addr { flex: 1; background: #0b0b0f; border: 1px solid #26262f; color: #e7e7ee; border-radius: 8px; padding: .45rem .7rem; font: inherit; font-size: .85rem; }
+      #frames { flex: 1; position: relative; }
+      webview { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+      webview.active { display: flex; }
+      #empty { position: absolute; inset: 0; display: grid; place-items: center; opacity: .4; }
+    </style>
+  </head>
+  <body>
+    <div id="side">
+      <h2>meshnet · chats</h2>
+      <div id="list"></div>
+      <button id="new">+ New chat</button>
+    </div>
+    <div id="main">
+      <div id="bar">
+        <button id="back" title="Back">◀</button>
+        <button id="fwd" title="Forward">▶</button>
+        <button id="reload" title="Reload">⟳</button>
+        <input id="addr" spellcheck="false" placeholder="localhost:3000/" />
+      </div>
+      <div id="frames"><div id="empty">select or create a chat</div></div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

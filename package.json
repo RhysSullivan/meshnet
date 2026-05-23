@@ -1,0 +1,14 @@
+{
+  "name": "meshnet",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@vercel/sandbox": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest"
+  }
+}
